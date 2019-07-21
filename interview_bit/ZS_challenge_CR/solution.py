@@ -88,7 +88,7 @@ def data_prep(df):
     }
     df['range_of_shot'] = df['range_of_shot'].apply(lambda a: range_of_shot[a])
 
-    df['finesse'] = (df['distance_of_shot'] * df['power_of_shot']) / df['area_of_shot']
+    # df['finesse'] = (df['distance_of_shot'] * df['power_of_shot']) / df['area_of_shot']
 
 
 def train():
@@ -215,11 +215,11 @@ def predict():
 
     df1 = pd.DataFrame.from_dict(pred_dict, orient='index')
     df1 = df1.T
-    df1.to_csv('data/predict.csv', index=False)
+    df1.to_csv('data/predict_blend.csv', index=False)
 
 
-train()
-# predict()
+# train()
+predict()
 
 
 '''
@@ -244,6 +244,18 @@ Blend rf, lrg with XGB with new features
    micro avg       0.57      0.57      0.57      4886
    macro avg       0.56      0.55      0.55      4886
 weighted avg       0.56      0.57      0.56      4886
+
+
+Blend rf, lrg with XGB without new features
+0.550552599263201
+              precision    recall  f1-score   support
+
+         0.0       0.56      0.88      0.69      2724
+         1.0       0.47      0.14      0.21      2162
+
+   micro avg       0.55      0.55      0.55      4886
+   macro avg       0.52      0.51      0.45      4886
+weighted avg       0.52      0.55      0.48      4886
 
 
 
