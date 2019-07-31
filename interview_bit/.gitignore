@@ -1,8 +1,9 @@
 *.pyc
-py/*
 __pycache__/*
 __pycache__
-.idea/*
-logs
-data/
-*.csv
+.idea
+data/*
+models/*
+logs/*
+MNIST_data/*
+.ipynb_checkpoints/*

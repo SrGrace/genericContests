@@ -1,5 +1,9 @@
 *.pyc
 __pycache__/*
 __pycache__
-.idea/*
-data/
+.idea
+data/*
+models/*
+logs/*
+MNIST_data/*
+.ipynb_checkpoints/*
