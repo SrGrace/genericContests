@@ -37,13 +37,13 @@ def training():
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=37)
 
-    clf1 = RandomForestClassifier()
-    clf1.fit(x_train, y_train)
-    pickle.dump(clf1, open('./data/rf_tfidf.pickle', 'wb'))
+    # clf1 = RandomForestClassifier()
+    # clf1.fit(x_train, y_train)
+    # pickle.dump(clf1, open('./data/rf_tfidf.pickle', 'wb'))
 
-    # clf2 = XGBClassifier()
-    # clf2.fit(x_train, y_train)
-    # pickle.dump(clf2, open('./data/xgb_tfidf.pickle', 'wb'))
+    clf1 = XGBClassifier()
+    clf1.fit(x_train, y_train)
+    pickle.dump(clf1, open('./data/xgb_tfidf.pickle', 'wb'))
 
     pred1 = clf1.predict(x_test)
 
@@ -91,11 +91,50 @@ def pre_process():
     plt.show()
 
 
-# training()
-prediction()
+training()
+# prediction()
 # pre_process()
 
+'''
+RF-TFIDF
+[[3469   82   66    1    0]
+ [ 163 1774   45    5    4]
+ [ 233  134  462    1    1]
+ [  29  133    1   39    0]
+ [  10   53    1    0    2]]
+              precision    recall  f1-score   support
 
+           1       0.89      0.96      0.92      3618
+           2       0.82      0.89      0.85      1991
+           3       0.80      0.56      0.66       831
+           4       0.85      0.19      0.31       202
+           5       0.29      0.03      0.05        66
+
+   micro avg       0.86      0.86      0.86      6708
+   macro avg       0.73      0.53      0.56      6708
+weighted avg       0.85      0.86      0.84      6708
+
+
+XGB-TFIDF
+[[3476   60   79    3    0]
+ [ 204 1718   49   17    3]
+ [ 241  107  483    0    0]
+ [  30   98    2   72    0]
+ [  12   51    0    0    3]]
+              precision    recall  f1-score   support
+
+           1       0.88      0.96      0.92      3618
+           2       0.84      0.86      0.85      1991
+           3       0.79      0.58      0.67       831
+           4       0.78      0.36      0.49       202
+           5       0.50      0.05      0.08        66
+
+   micro avg       0.86      0.86      0.86      6708
+   macro avg       0.76      0.56      0.60      6708
+weighted avg       0.85      0.86      0.85      6708
+
+
+'''
 
 
 
